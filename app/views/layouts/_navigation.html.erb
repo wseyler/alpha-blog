@@ -12,24 +12,11 @@
         <li class="nav-item"><%= link_to 'Log out', logout_path, method: :delete, class: "nav-link" %></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <% if current_user.admin %>
-              Admin
-            <% else %>
-              Your Profile
-            <% end %>
+            Actions
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a><%= link_to "New Article", new_article_path, class: "dropdown-item" %></a>
-            <a><%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %>
-            </a>
-            <a><%= link_to "View your profile", user_path(current_user), class: "dropdown-item" %>
-            </a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
           </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>
       <% else %>
         <li class="nav-item">
@@ -61,5 +48,20 @@
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
+    <% if logged_in? %>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Your Profile
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a><%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %>
+          </a>
+          <a><%= link_to "View your profile", user_path(current_user), class: "dropdown-item" %>
+          </a>
+        </div>
+      </li>
+    </ul>
+    <% end %>
   </div>
 </nav>
