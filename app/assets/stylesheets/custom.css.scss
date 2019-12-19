@@ -85,6 +85,17 @@ footer ul {
   padding-left: 0;
 }
 
+.badge {
+  background-color: #CEF6F5;
+  text-transform: uppercase;
+  letter-spacing: -px;
+  font-weight: bold;
+}
+
+.input_checkbox input {
+  width: auto !important;
+}
+
 footer ul li {
   float: left;
   margin-left: 15px;
